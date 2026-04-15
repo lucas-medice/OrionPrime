@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>OrionPrime · Engenharia de soluções digitais AI-First</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #05070F;
+      font-family: 'Inter', sans-serif;
+      color: #F0F4FA;
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    /* Primeira section (hero) */
+    .first-section {
+      position: relative;
+      background: radial-gradient(circle at 10% 20%, rgba(0, 30, 50, 0.5), #05070F 90%);
+      isolation: isolate;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: visible;
+    }
+
+    .first-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 230, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 230, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Segunda section (pilares) */
+    .second-section {
+      position: relative;
+      background: #05070F;
+      padding: 80px 0;
+      border-top: 1px solid rgba(0, 230, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 230, 255, 0.15);
+      z-index: 1;
+    }
+
+    /* Terceira section (vantagens) */
+    .third-section {
+      position: relative;
+      background: #05070F;
+      padding: 80px 0;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    /* navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0 20px 0;
+      border-bottom: 1px solid rgba(0, 230, 255, 0.2);
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+      filter: brightness(1.05) drop-shadow(0 0 4px rgba(0, 229, 255, 0.2));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      list-style: none;
+      margin: 0 auto;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #C5D3E8;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: #00e5ff;
+    }
+
+    /* seletor de idioma */
+    .lang-selector {
+      position: relative;
+    }
+
+    .lang-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 230, 255, 0.3);
+      border-radius: 40px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #C5D3E8;
+    }
+
+    .lang-button:hover {
+      background: rgba(0, 229, 255, 0.18);
+      border-color: #00e5ff;
+      color: #00e5ff;
+    }
+
+    .lang-button .flag-img {
+      width: 20px;
+      height: auto;
+      border-radius: 2px;
+    }
+
+    .lang-button .chevron {
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+      margin-left: 4px;
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #0E1427;
+      border: 1px solid rgba(0, 230, 255, 0.3);
+      border-radius: 16px;
+      padding: 8px 0;
+      min-width: 140px;
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+      z-index: 100;
+    }
+
+    .lang-selector.open .lang-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lang-selector.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 0.85rem;
+      color: #C5D3E8;
+    }
+
+    .lang-option:hover {
+      background: rgba(0, 229, 255, 0.15);
+      color: #00e5ff;
+    }
+
+    .lang-option .flag-img {
+      width: 20px;
+    }
+
+    /* hero grid com duas colunas */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin: 40px 0 0 0;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 3;
+      margin-bottom: -80px;
+    }
+
+    .hero-image img {
+      max-width: 80%;
+      height: auto;
+      filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.2));
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .hero-image img:hover {
+      transform: translateY(-5px);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(0, 229, 255, 0.12);
+      border-left: 3px solid #00e5ff;
+      padding: 6px 14px;
+      border-radius: 0 20px 20px 0;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #8ECAE6;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 3.2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #FFFFFF 70%, #B0E0FF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-content .main-desc {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #C5D8F0;
+      margin-bottom: 24px;
+      border-left: 2px solid rgba(0, 229, 255, 0.4);
+      padding-left: 20px;
+    }
+
+    .hero-machine {
+      font-size: 1rem;
+      color: #A3C2E0;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-machine i {
+      color: #00e5ff;
+      margin-right: 6px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(105deg, #00a3cc 0%, #00e5ff 100%);
+      border: none;
+      padding: 14px 34px;
+      border-radius: 48px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #05070F;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid rgba(0, 229, 255, 0.6);
+      padding: 12px 32px;
+      border-radius: 48px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #00e5ff;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 229, 255, 0.1);
+      border-color: #00e5ff;
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+    }
+
+    /* seção de pilares */
+    .section-title {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF, #B0E0FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #A7BBD9;
+      max-width: 700px;
+      margin: 0 auto 60px auto;
+      font-size: 1.1rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .pillar-card {
+      background: #0E1427;
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      border-radius: 32px;
+      padding: 40px 32px;
+      transition: all 0.25s;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.4);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      border-color: #00e5ff;
+      box-shadow: 0 20px 30px -12px rgba(0, 229, 255, 0.15);
+    }
+
+    .pillar-icon {
+      font-size: 2.8rem;
+      color: #00e5ff;
+      margin-bottom: 24px;
+    }
+
+    .pillar-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .pillar-card p {
+      color: #C5D6EE;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .pillar-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .pillar-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #A7BBD9;
+    }
+
+    .pillar-list i {
+      color: #00e5ff;
+      width: 20px;
+    }
+
+    .highlight-quote {
+      text-align: center;
+      margin-top: 40px;
+      padding: 24px;
+      background: rgba(0, 229, 255, 0.05);
+      border-radius: 48px;
+      border-left: 3px solid #00e5ff;
+      border-right: 3px solid #00e5ff;
+      font-style: italic;
+      color: #C5D8F0;
+    }
+
+    /* seção de vantagens (cards) */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .advantage-card {
+      background: #0E1427;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 28px;
+      padding: 32px 24px;
+      transition: all 0.25s;
+      text-align: center;
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-8px);
+      border-color: #00e5ff;
+      box-shadow: 0 20px 30px -12px rgba(0, 229, 255, 0.2);
+    }
+
+    .advantage-icon {
+      font-size: 2.8rem;
+      color: #00e5ff;
+      margin-bottom: 20px;
+    }
+
+    .advantage-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .advantage-card p {
+      color: #C5D6EE;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    /* Seção de pares emparelhados */
+    .paired-section {
+      position: relative;
+      background: #05070F;
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(0, 230, 255, 0.15);
+    }
+
+    .paired-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .pair-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #0E1427;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .pair-card:hover {
+      transform: translateY(-4px);
+      border-color: #00e5ff;
+      box-shadow: 0 15px 30px -12px rgba(0, 229, 255, 0.15);
+    }
+
+    .challenge-side,
+    .solution-side {
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .challenge-side {
+      background: rgba(0, 0, 0, 0.2);
+      border-right: 1px solid rgba(0, 229, 255, 0.15);
+    }
+
+    .solution-side {
+      background: rgba(0, 229, 255, 0.02);
+    }
+
+    .pair-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .challenge-icon {
+      color: #b40000;
+    }
+
+    .challenge-side h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #c72525;
+    }
+
+    .challenge-side p {
+      color: #C5D6EE;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .solution-icon {
+      color: #00e5ff;
+    }
+
+    .solution-side h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #00e5ff;
+    }
+
+    .solution-side p {
+      color: #C5D6EE;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    /* Modal de serviços */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #0E1427;
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      border-radius: 32px;
+      max-width: 500px;
+      width: 90%;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 1.5rem;
+      color: #C5D3E8;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: #00e5ff;
+    }
+
+    .modal-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      color: #00e5ff;
+    }
+
+    .modal-solutions-list {
+      list-style: none;
+    }
+
+    .modal-solutions-list li {
+      margin-bottom: 16px;
+    }
+
+    .modal-solutions-list a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #F0F4FA;
+      padding: 10px 16px;
+      border-radius: 16px;
+      transition: all 0.2s;
+      background: rgba(0, 229, 255, 0.03);
+      border: 1px solid rgba(0, 229, 255, 0.1);
+    }
+
+    .modal-solutions-list a i {
+      color: #00e5ff;
+      width: 28px;
+    }
+
+    .modal-solutions-list a:hover {
+      background: rgba(0, 229, 255, 0.15);
+      border-color: #00e5ff;
+      transform: translateX(5px);
+    }
+
+    /* Footer */
+    .footer-v3 {
+      background: linear-gradient(180deg, #05070F 0%, #080C17 100%);
+      padding: 60px 0 25px;
+      border-top: 1px solid rgba(0, 230, 255, 0.25);
+      position: relative;
+      margin-top: 0;
+    }
+
+    .footer-v3::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00e5ff, #00e5ff, transparent);
+      opacity: 0.5;
+    }
+
+    .container-v3 {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .footer-v3-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1.2fr;
+      gap: 50px;
+      margin-bottom: 45px;
+    }
+
+    .footer-v3-logo {
+      height: 44px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.2));
+      margin-bottom: 20px;
+    }
+
+    .footer-v3-desc {
+      color: #C5D8F0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+
+    .footer-v3-trust {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 229, 255, 0.05);
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #7EC8E0;
+      border: 0.5px solid rgba(0, 229, 255, 0.3);
+    }
+
+    .footer-v3-col h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #F0F4FA;
+      letter-spacing: 0.5px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-v3-col h4::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: #00e5ff;
+      border-radius: 2px;
+    }
+
+    .footer-v3-links-group {
+      display: flex;
+      gap: 40px;
+    }
+
+    .footer-v3-links-group ul {
+      list-style: none;
+    }
+
+    .footer-v3-links-group li {
+      margin-bottom: 12px;
+    }
+
+    .footer-v3-links-group a {
+      text-decoration: none;
+      color: #C5D3E8;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-v3-links-group a:hover {
+      color: #00e5ff;
+      padding-left: 3px;
+    }
+
+    .footer-v3-contact p {
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      color: #C5D3E8;
+    }
+
+    .footer-v3-contact i {
+      width: 28px;
+      color: #00e5ff;
+      margin-right: 6px;
+    }
+
+    .footer-v3-contact a {
+      text-decoration: none;
+      color: #C5D3E8;
+    }
+
+    .footer-v3-contact a:hover {
+      color: #00e5ff;
+    }
+
+    .footer-v3-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .footer-v3-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(0, 229, 255, 0.06);
+      border-radius: 50%;
+      color: #C5D3E8;
+      font-size: 1rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(0, 229, 255, 0.15);
+    }
+
+    .footer-v3-social a:hover {
+      background: #00e5ff;
+      color: #05070F;
+      transform: translateY(-3px);
+      border-color: #00e5ff;
+    }
+
+    .footer-v3-bottom {
+      margin-top: 10px;
+    }
+
+    .footer-v3-border {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.4), transparent);
+      margin-bottom: 25px;
+    }
+
+    .footer-v3-credits {
+      text-align: center;
+    }
+
+    .footer-v3-credits p {
+      color: #7F8FA4;
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+    }
+
+    .footer-v3-small {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    /* responsividade */
+    @media (max-width: 1024px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+
+      .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-v3-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-v3-col:first-child {
+        grid-column: span 2;
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        margin-bottom: 0;
+      }
+
+      .hero-content {
+        order: 1;
+      }
+
+      .hero-image {
+        display: none;
+      }
+
+      .hero-content .main-desc {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .hero-tag {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-machine {
+        justify-content: center;
+      }
+
+      .btn-group {
+        justify-content: center;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links {
+        margin: 0;
+      }
+
+      .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .pair-card {
+        grid-template-columns: 1fr;
+      }
+
+      .challenge-side {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+      }
+
+      .footer-v3-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-v3-col:first-child {
+        grid-column: span 1;
+      }
+
+      .footer-v3-links-group {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .container-v3 {
+        padding: 0 24px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .pillar-card {
+        padding: 28px 20px;
+      }
+
+      .pillar-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .advantage-card {
+        padding: 24px 20px;
+      }
+
+      .advantage-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .challenge-side,
+      .solution-side {
+        padding: 24px 20px;
+      }
+
+      .pair-icon {
+        font-size: 1.8rem;
+      }
+
+      .challenge-side h3,
+      .solution-side h3 {
+        font-size: 1.2rem;
+      }
+
+      .container-v3 {
+        padding: 0 20px;
+      }
+
+      .footer-v3-links-group {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- PRIMEIRA SEÇÃO: HERO -->
+  <section class="first-section">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="assets/logo.png" alt="OrionPrime Tecnologia">
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" id="sobreLink">Sobre</a></li>
+          <li><a href="#" id="servicosLink">Serviços</a></li>
+          <li><a href="#" id="blogLink">Blog</a></li>
+          <li><a href="#" id="contatoLink">Contato</a></li>
+        </ul>
+        <div class="lang-selector" id="langSelector">
+          <div class="lang-button" id="langButton">
+            <img src="assets/flag-br.png" alt="PT" class="flag-img" id="currentFlag">
+            <span id="currentLangText">PT</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </div>
+          <div class="lang-dropdown">
+            <div class="lang-option" data-lang="pt">
+              <img src="assets/flag-br.png" alt="PT" class="flag-img">
+              <span>Português</span>
+            </div>
+            <div class="lang-option" data-lang="en">
+              <img src="assets/flag-us.png" alt="EN" class="flag-img">
+              <span>English</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="fas fa-brain"></i> Engenharia AI-First · Não somos software house
+          </div>
+          <h1>Transformamos negócios locais em máquinas digitais inteligentes</h1>
+          <p class="main-desc">
+            OrionPrime cria <strong>soluções verticais completas</strong> — sistemas web, presença digital, automação e
+            IA
+            — para nichos específicos.
+            Começamos com uma vertical, validamos com clientes reais e escalamos.
+          </p>
+          <div class="hero-machine">
+            <span><i class="fas fa-chart-line"></i> Dados como ativo</span>
+            <span><i class="fas fa-robot"></i> IA embutida</span>
+            <span><i class="fas fa-cubes"></i> Produtos replicáveis</span>
+          </div>
+          <div class="btn-group">
+            <button class="btn-primary">Fale com um especialista <i class="fas fa-chevron-right"></i></button>
+            <button class="btn-secondary">Conheça nossas soluções <i class="fas fa-folder-open"></i></button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/modelo.png" alt="Profissional OrionPrime">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGUNDA SEÇÃO: PILARES -->
+  <section class="second-section">
+    <div class="container">
+      <h2 class="section-title">Mais do que código: uma máquina de negócios digitais</h2>
+      <p class="section-sub">
+        A OrionPrime opera com dois pilares que garantem soluções escaláveis, inteligentes e focadas em resultados
+        reais.
+      </p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Verticais de negócio</h3>
+          <p><strong>Não vendemos código, vendemos soluções completas para nichos específicos.</strong> Cada vertical
+            nasce de um problema real de um segmento, é validada com clientes reais e se torna um produto replicável.
+            Começamos com uma vertical, escalamos para adjacentes.</p>
+          <ul class="pillar-list">
+            <li><i class="fas fa-check-circle"></i> Fitness – OrionFit (case Academia)</li>
+            <li><i class="fas fa-check-circle"></i> Saúde – clínicas e consultórios</li>
+            <li><i class="fas fa-check-circle"></i> Construção civil e imobiliário</li>
+            <li><i class="fas fa-check-circle"></i> Agro e negócios locais</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Mentalidade AI-First</h3>
+          <p><strong>A inteligência não é um complemento, é a base.</strong> Projetamos cada solução para evoluir com IA
+            desde o primeiro dia. Dados são tratados como ativos estratégicos, gerando insights, automações e
+            recomendações que transformam a operação do negócio.</p>
+          <ul class="pillar-list">
+            <li><i class="fas fa-chart-line"></i> Dados como ativo estratégico</li>
+            <li><i class="fas fa-robot"></i> IA embutida desde o dia zero</li>
+            <li><i class="fas fa-bolt"></i> Automação de processos</li>
+            <li><i class="fas fa-chart-pie"></i> Insights para tomada de decisão</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-quote">
+        <i class="fas fa-quote-left" style="color:#00e5ff; margin-right: 8px;"></i>
+        Transforme seu negócio local em uma operação digital eficiente, escalável e inteligente. Com a OrionPrime, você
+        ganha mais produtividade, redução de custos e tomada de decisão baseada em dados.
+        <i class="fas fa-quote-right" style="color:#00e5ff; margin-left: 8px;"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERCEIRA SEÇÃO: VANTAGENS -->
+  <section class="third-section">
+    <div class="container">
+      <h2 class="section-title">Por que ter a OrionPrime como aliada?</h2>
+      <p class="section-sub">
+        Vantagens que vão além da tecnologia, entregando valor real para o seu negócio.
+      </p>
+      <div class="advantages-grid">
+        <div class="advantage-card">
+          <div class="advantage-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Escalabilidade real</h3>
+          <p>Soluções projetadas para crescer com o seu negócio, sem retrabalho ou dores de cabeça com infraestrutura.
+          </p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Decisões baseadas em dados</h3>
+          <p>Transformamos dados brutos em insights acionáveis para você tomar decisões mais assertivas e rápidas.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon"><i class="fas fa-clock"></i></div>
+          <h3>Time to market reduzido</h3>
+          <p>Metodologia ágil com validação contínua – entregamos valor real em ciclos curtos e com baixo risco.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Segurança e governança</h3>
+          <p>Práticas de segurança desde a concepção, proteção de dados e conformidade com boas práticas de mercado.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Parceria de longo prazo</h3>
+          <p>Não entregamos e sumimos. Evoluímos com você, garantindo que a solução continue gerando valor.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-icon"><i class="fas fa-brain"></i></div>
+          <h3>IA aplicada ao seu negócio</h3>
+          <p>Inteligência artificial que resolve problemas reais: automação, recomendações e predição de resultados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUARTA SEÇÃO: DESAFIO + SOLUÇÃO (cards emparelhados) -->
+  <section class="paired-section">
+    <div class="container">
+      <h2 class="section-title">Desafios reais. Soluções inteligentes.</h2>
+      <p class="section-sub">
+        Conhecemos a fundo as dores do seu negócio. Veja como a OrionPrime resolve cada uma delas.
+      </p>
+
+      <div class="paired-grid">
+        <!-- Par 1 -->
+        <div class="pair-card">
+          <div class="challenge-side">
+            <div class="pair-icon challenge-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Processos manuais e ineficientes</h3>
+            <p>Fichas de papel, planilhas descentralizadas, retrabalho e perda de informações.</p>
+          </div>
+          <div class="solution-side">
+            <div class="pair-icon solution-icon"><i class="fas fa-robot"></i></div>
+            <h3>Automação inteligente</h3>
+            <p>Eliminamos tarefas repetitivas com IA e fluxos automatizados, reduzindo erros e tempo operacional.</p>
+          </div>
+        </div>
+
+        <!-- Par 2 -->
+        <div class="pair-card">
+          <div class="challenge-side">
+            <div class="pair-icon challenge-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Falta de dados para decisão</h3>
+            <p>Sem métricas reais sobre clientes, vendas ou desempenho – decisões no "achômetro".</p>
+          </div>
+          <div class="solution-side">
+            <div class="pair-icon solution-icon"><i class="fas fa-database"></i></div>
+            <h3>Data-driven desde o início</h3>
+            <p>Dashboards, relatórios e indicadores em tempo real. Sua operação nasce orientada a dados.</p>
+          </div>
+        </div>
+
+        <!-- Par 3 -->
+        <div class="pair-card">
+          <div class="challenge-side">
+            <div class="pair-icon challenge-icon"><i class="fas fa-globe"></i></div>
+            <h3>Baixa presença digital</h3>
+            <p>Site desatualizado, sem integração com redes sociais ou ferramentas de comunicação.</p>
+          </div>
+          <div class="solution-side">
+            <div class="pair-icon solution-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3>Presença digital estratégica</h3>
+            <p>Sites, apps e integrações que conectam seu negócio aos clientes de forma moderna e eficaz.</p>
+          </div>
+        </div>
+
+        <!-- Par 4 -->
+        <div class="pair-card">
+          <div class="challenge-side">
+            <div class="pair-icon challenge-icon"><i class="fas fa-chart-bar"></i></div>
+            <h3>Dificuldade de escalar</h3>
+            <p>Sistemas que não acompanham o crescimento, gerando gargalos e custos excessivos.</p>
+          </div>
+          <div class="solution-side">
+            <div class="pair-icon solution-icon"><i class="fas fa-expand-alt"></i></div>
+            <h3>Arquitetura escalável</h3>
+            <p>Sistemas prontos para crescer com você – do pequeno negócio à rede de franquias.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE SERVIÇOS -->
+  <div id="servicosModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2><i class="fas fa-cogs"></i> Nossas soluções</h2>
+      <ul class="modal-solutions-list">
+        <li><a href="orionfitness.html"><i class="fas fa-dumbbell"></i> OrionFitness</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER - Variação 3 -->
+  <footer class="footer-v3">
+    <div class="container-v3">
+      <div class="footer-v3-grid">
+        <div class="footer-v3-col">
+          <img src="assets/logo.png" alt="OrionPrime" class="footer-v3-logo">
+          <p class="footer-v3-desc">
+            Engenharia de soluções digitais com inteligência embutida. Transformamos negócios locais em máquinas
+            digitais inteligentes.
+          </p>
+          <div class="footer-v3-trust">
+            <i class="fas fa-shield-alt"></i> AI-First
+          </div>
+        </div>
+        <div class="footer-v3-col">
+          <h4>Navegue</h4>
+          <div class="footer-v3-links-group">
+            <ul>
+              <li><a href="sobre.html">Sobre</a></li>
+              <li><a href="#" id="servicosFooterLink">Serviços</a></li>
+              <li><a href="verticais.html">Verticais</a></li>
+            </ul>
+            <ul>
+              <li><a href="cases.html">Cases</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-v3-col">
+          <h4>Conecte-se</h4>
+          <div class="footer-v3-contact">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:hello@orionprime.com">hello@orionprime.com</a></p>
+            <p><i class="fab fa-whatsapp"></i> <span>(11) 98888-7777</span></p>
+          </div>
+          <div class="footer-v3-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-v3-bottom">
+        <div class="footer-v3-border"></div>
+        <div class="footer-v3-credits">
+          <p>© 2025 OrionPrime Tecnologia. Inovação com responsabilidade.</p>
+          <p class="footer-v3-small">CNPJ 00.000.000/0001-00 · Todos os direitos reservados</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Modal de serviços
+    const modal = document.getElementById('servicosModal');
+    const servicosLink = document.getElementById('servicosLink');
+    const servicosFooterLink = document.getElementById('servicosFooterLink');
+    const closeModal = document.querySelector('.modal-close');
+
+    function openModal(e) {
+      e.preventDefault();
+      modal.style.display = 'flex';
+    }
+
+    function closeModalFunc() {
+      modal.style.display = 'none';
+    }
+
+    servicosLink.addEventListener('click', openModal);
+    if (servicosFooterLink) servicosFooterLink.addEventListener('click', openModal);
+    closeModal.addEventListener('click', closeModalFunc);
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModalFunc();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') closeModalFunc();
+    });
+
+    // Redirecionamentos dos links da navbar
+    document.getElementById('sobreLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'sobre.html';
+    });
+    document.getElementById('blogLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'blog.html';
+    });
+    document.getElementById('contatoLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'contato.html';
+    });
+
+    // Seletor de idioma (placeholder)
+    const langSelector = document.getElementById('langSelector');
+    const langButton = document.getElementById('langButton');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const currentFlagImg = document.getElementById('currentFlag');
+    const currentLangText = document.getElementById('currentLangText');
+
+    langButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langSelector.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!langSelector.contains(e.target)) {
+        langSelector.classList.remove('open');
+      }
+    });
+    langOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const lang = option.getAttribute('data-lang');
+        const newFlagSrc = option.querySelector('.flag-img').src;
+        const newText = lang === 'pt' ? 'PT' : 'EN';
+        currentFlagImg.src = newFlagSrc;
+        currentLangText.innerText = newText;
+        langSelector.classList.remove('open');
+        if (lang === 'en') {
+          alert("🌐 English version coming soon. The site is currently in Portuguese.");
+        } else {
+          alert("Idioma alterado para Português.");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
