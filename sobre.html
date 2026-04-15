@@ -9,6 +9,10 @@
     href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
   <style>
     * {
       margin: 0;
@@ -161,7 +165,7 @@
     .story-image {
       border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(0, 229, 255, 0.2);
     }
 
@@ -517,20 +521,33 @@
     }
 
     @media (max-width: 860px) {
-      .navbar, .about-hero, .story-grid, .timeline-viz, .founder-section, .values-section, .footer-inner {
+
+      .navbar,
+      .about-hero,
+      .story-grid,
+      .timeline-viz,
+      .founder-section,
+      .values-section,
+      .footer-inner {
         padding-left: 20px;
         padding-right: 20px;
       }
-      .story-grid, .values-section, .footer-inner {
+
+      .story-grid,
+      .values-section,
+      .footer-inner {
         grid-template-columns: 1fr;
       }
+
       .timeline-cards {
         flex-direction: column;
       }
+
       .navbar {
         flex-direction: column;
         align-items: center;
       }
+
       .nav-links {
         margin: 0;
       }
@@ -544,10 +561,9 @@
       <img src="assets/logo.png" alt="OrionPrime">
     </div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#" id="servicosLink">Serviços</a></li>
       <li><a href="sobre.html" class="active">Sobre</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="#" id="servicosLink">Soluções</a></li>
+      <li><a href="#" id="conteudoLink">Conteúdo</a></li>
       <li><a href="contato.html">Contato</a></li>
     </ul>
     <div class="lang-selector" id="langSelector">
@@ -581,8 +597,10 @@
     </div>
     <div class="story-text">
       <h2>A origem solo</h2>
-      <p>Em 2023, um engenheiro de software decidiu construir algo diferente: não uma software house genérica, mas uma fábrica de soluções verticais com IA embutida. Sem equipe, apenas visão e código.</p>
-      <p>O case "Academia" foi o primeiro marco: um sistema completo desenvolvido do zero, mostrando que um profissional focado pode entregar valor de ponta a ponta.</p>
+      <p>Em 2023, um engenheiro de software decidiu construir algo diferente: não uma software house genérica, mas uma
+        fábrica de soluções verticais com IA embutida. Sem equipe, apenas visão e código.</p>
+      <p>O case "Academia" foi o primeiro marco: um sistema completo desenvolvido do zero, mostrando que um profissional
+        focado pode entregar valor de ponta a ponta.</p>
     </div>
   </div>
 
@@ -592,7 +610,8 @@
     </div>
     <div class="story-text" style="direction: ltr;">
       <h2>Mentalidade AI-First</h2>
-      <p>Cada linha de código nasce com inteligência no DNA. Automação, predição e dados como ativo – tudo construído por um único cérebro, sem ruídos.</p>
+      <p>Cada linha de código nasce com inteligência no DNA. Automação, predição e dados como ativo – tudo construído
+        por um único cérebro, sem ruídos.</p>
       <p>Agilidade, foco e total controle sobre a qualidade da solução.</p>
     </div>
   </div>
@@ -651,7 +670,7 @@
     </div>
   </div>
 
-  <!-- MODAL SERVIÇOS -->
+  <!-- MODAL SERVIÇOS (SOLUÇÕES) -->
   <div id="servicosModal" class="modal">
     <div class="modal-content">
       <span class="modal-close">&times;</span>
@@ -667,12 +686,26 @@
     </div>
   </div>
 
+  <!-- MODAL DE CONTEÚDO (NOVO) -->
+  <div id="conteudoModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="closeConteudoModal">&times;</span>
+      <h2><i class="fas fa-book-open"></i> Conteúdo exclusivo</h2>
+      <ul class="modal-solutions-list">
+        <li><a href="#"><i class="fas fa-chart-simple"></i> Cases de sucesso</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf"></i> Conteúdos gratuitos</a></li>
+        <li><a href="#"><i class="fas fa-blog"></i> Blog OrionPrime</a></li>
+      </ul>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer-v3">
     <div class="footer-inner">
       <div>
         <img src="assets/logo.png" alt="OrionPrime" class="footer-logo-img">
-        <p class="footer-desc">Engenharia de soluções digitais com inteligência embutida. Transformamos negócios locais em máquinas digitais inteligentes.</p>
+        <p class="footer-desc">Engenharia de soluções digitais com inteligência embutida. Transformamos negócios locais
+          em máquinas digitais inteligentes.</p>
         <div class="footer-trust"><i class="fas fa-shield-alt"></i> AI-First</div>
       </div>
       <div class="footer-col">
@@ -680,7 +713,7 @@
         <div class="footer-links-group">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#" id="servicosFooterLink">Serviços</a></li>
+            <li><a href="#" id="servicosFooterLink">Soluções</a></li>
             <li><a href="sobre.html">Sobre</a></li>
           </ul>
           <ul>
@@ -709,24 +742,41 @@
   </footer>
 
   <script>
-    // Modal serviços
-    const modal = document.getElementById('servicosModal');
+    // Modal serviços (soluções)
+    const modalServicos = document.getElementById('servicosModal');
     const servicosLink = document.getElementById('servicosLink');
     const servicosFooterLink = document.getElementById('servicosFooterLink');
-    const closeModal = document.querySelector('.modal-close');
+    const closeServicos = document.querySelector('#servicosModal .modal-close');
 
-    function openModal(e) {
+    function openServicos(e) {
       e.preventDefault();
-      modal.style.display = 'flex';
+      modalServicos.style.display = 'flex';
     }
-    function closeModalFunc() {
-      modal.style.display = 'none';
+    function closeServicosFunc() {
+      modalServicos.style.display = 'none';
     }
-    if (servicosLink) servicosLink.addEventListener('click', openModal);
-    if (servicosFooterLink) servicosFooterLink.addEventListener('click', openModal);
-    if (closeModal) closeModal.addEventListener('click', closeModalFunc);
-    window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'flex') closeModalFunc(); });
+    if (servicosLink) servicosLink.addEventListener('click', openServicos);
+    if (servicosFooterLink) servicosFooterLink.addEventListener('click', openServicos);
+    if (closeServicos) closeServicos.addEventListener('click', closeServicosFunc);
+    window.addEventListener('click', (e) => { if (e.target === modalServicos) closeServicosFunc(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalServicos.style.display === 'flex') closeServicosFunc(); });
+
+    // Modal conteúdo
+    const modalConteudo = document.getElementById('conteudoModal');
+    const conteudoLink = document.getElementById('conteudoLink');
+    const closeConteudo = document.getElementById('closeConteudoModal');
+
+    function openConteudo(e) {
+      e.preventDefault();
+      modalConteudo.style.display = 'flex';
+    }
+    function closeConteudoFunc() {
+      modalConteudo.style.display = 'none';
+    }
+    if (conteudoLink) conteudoLink.addEventListener('click', openConteudo);
+    if (closeConteudo) closeConteudo.addEventListener('click', closeConteudoFunc);
+    window.addEventListener('click', (e) => { if (e.target === modalConteudo) closeConteudoFunc(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalConteudo.style.display === 'flex') closeConteudoFunc(); });
 
     // idioma
     const langSelector = document.getElementById('langSelector');

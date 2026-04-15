@@ -547,7 +547,7 @@
       font-size: 0.95rem;
     }
 
-    /* Modal de serviços */
+    /* Modal de serviços e conteúdo */
     .modal {
       display: none;
       position: fixed;
@@ -987,10 +987,10 @@
           <img src="assets/logo.png" alt="OrionPrime Tecnologia">
         </div>
         <ul class="nav-links">
-          <li><a href="#" id="sobreLink">Sobre</a></li>
-          <li><a href="#" id="servicosLink">Serviços</a></li>
-          <li><a href="#" id="blogLink">Blog</a></li>
-          <li><a href="#" id="contatoLink">Contato</a></li>
+          <li><a href="sobre.html" id="sobreLink">Sobre</a></li>
+          <li><a href="#" id="servicosLink">Soluções</a></li>
+          <li><a href="#" id="conteudoLink">Conteúdo</a></li>
+          <li><a href="contato.html" id="contatoLink">Contato</a></li>
         </ul>
         <div class="lang-selector" id="langSelector">
           <div class="lang-button" id="langButton">
@@ -1196,13 +1196,26 @@
     </div>
   </section>
 
-  <!-- MODAL DE SERVIÇOS -->
+  <!-- MODAL DE SERVIÇOS (SOLUÇÕES) -->
   <div id="servicosModal" class="modal">
     <div class="modal-content">
       <span class="modal-close">&times;</span>
       <h2><i class="fas fa-cogs"></i> Nossas soluções</h2>
       <ul class="modal-solutions-list">
         <li><a href="orionfitness.html"><i class="fas fa-dumbbell"></i> OrionFitness</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODAL DE CONTEÚDO (NOVO) -->
+  <div id="conteudoModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="closeConteudoModal">&times;</span>
+      <h2><i class="fas fa-book-open"></i> Conteúdo exclusivo</h2>
+      <ul class="modal-solutions-list">
+        <li><a href="#"><i class="fas fa-chart-simple"></i> Cases de sucesso</a></li>
+        <li><a href="#"><i class="fas fa-file-pdf"></i> Conteúdos gratuitos</a></li>
+        <li><a href="#"><i class="fas fa-blog"></i> Blog OrionPrime</a></li>
       </ul>
     </div>
   </div>
@@ -1226,7 +1239,7 @@
           <div class="footer-v3-links-group">
             <ul>
               <li><a href="sobre.html">Sobre</a></li>
-              <li><a href="#" id="servicosFooterLink">Serviços</a></li>
+              <li><a href="#" id="servicosFooterLink">Soluções</a></li>
               <li><a href="verticais.html">Verticais</a></li>
             </ul>
             <ul>
@@ -1260,43 +1273,48 @@
   </footer>
 
   <script>
-    // Modal de serviços
-    const modal = document.getElementById('servicosModal');
+    // MODAL DE SERVIÇOS (SOLUÇÕES)
+    const modalServicos = document.getElementById('servicosModal');
     const servicosLink = document.getElementById('servicosLink');
     const servicosFooterLink = document.getElementById('servicosFooterLink');
-    const closeModal = document.querySelector('.modal-close');
+    const closeServicos = document.querySelector('#servicosModal .modal-close');
 
-    function openModal(e) {
+    function openServicos(e) {
       e.preventDefault();
-      modal.style.display = 'flex';
+      modalServicos.style.display = 'flex';
     }
-
-    function closeModalFunc() {
-      modal.style.display = 'none';
+    function closeServicosFunc() {
+      modalServicos.style.display = 'none';
     }
-
-    servicosLink.addEventListener('click', openModal);
-    if (servicosFooterLink) servicosFooterLink.addEventListener('click', openModal);
-    closeModal.addEventListener('click', closeModalFunc);
+    servicosLink.addEventListener('click', openServicos);
+    if (servicosFooterLink) servicosFooterLink.addEventListener('click', openServicos);
+    closeServicos.addEventListener('click', closeServicosFunc);
     window.addEventListener('click', (e) => {
-      if (e.target === modal) closeModalFunc();
+      if (e.target === modalServicos) closeServicosFunc();
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'flex') closeModalFunc();
+      if (e.key === 'Escape' && modalServicos.style.display === 'flex') closeServicosFunc();
     });
 
-    // Redirecionamentos dos links da navbar
-    document.getElementById('sobreLink').addEventListener('click', (e) => {
+    // MODAL DE CONTEÚDO
+    const modalConteudo = document.getElementById('conteudoModal');
+    const conteudoLink = document.getElementById('conteudoLink');
+    const closeConteudo = document.getElementById('closeConteudoModal');
+
+    function openConteudo(e) {
       e.preventDefault();
-      window.location.href = 'sobre.html';
+      modalConteudo.style.display = 'flex';
+    }
+    function closeConteudoFunc() {
+      modalConteudo.style.display = 'none';
+    }
+    conteudoLink.addEventListener('click', openConteudo);
+    closeConteudo.addEventListener('click', closeConteudoFunc);
+    window.addEventListener('click', (e) => {
+      if (e.target === modalConteudo) closeConteudoFunc();
     });
-    document.getElementById('blogLink').addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.href = 'blog.html';
-    });
-    document.getElementById('contatoLink').addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.href = 'contato.html';
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalConteudo.style.display === 'flex') closeConteudoFunc();
     });
 
     // Seletor de idioma (placeholder)
