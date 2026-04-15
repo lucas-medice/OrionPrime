@@ -347,7 +347,7 @@
       margin-bottom: 8px;
     }
 
-    /* Founder com estilo diferenciado */
+    /* Founder section melhorada (CEO) */
     .founder-showcase {
       margin: 80px 0;
       display: flex;
@@ -358,14 +358,39 @@
       border-radius: 48px;
       padding: 50px;
       border: 1px solid rgba(0, 229, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .founder-showcase:hover {
+      border-color: #00e5ff;
+      box-shadow: 0 20px 35px -12px rgba(0, 229, 255, 0.2);
     }
 
     .founder-avatar {
       flex: 1;
       text-align: center;
+      position: relative;
     }
 
-    .founder-avatar i {
+    .founder-avatar img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #00e5ff;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #0E1427;
+    }
+
+    .founder-avatar img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 35px rgba(0, 229, 255, 0.5);
+    }
+
+    /* Fallback caso a imagem não carregue */
+    .founder-avatar .fallback-icon {
+      display: none;
       font-size: 8rem;
       color: #00e5ff;
       background: rgba(0, 229, 255, 0.1);
@@ -378,14 +403,53 @@
     }
 
     .founder-bio h3 {
-      font-size: 2rem;
-      margin-bottom: 12px;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      font-family: 'Poppins', sans-serif;
     }
 
     .founder-bio .title {
       color: #00e5ff;
       font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
       margin-bottom: 20px;
+      display: inline-block;
+      border-left: 3px solid #00e5ff;
+      padding-left: 12px;
+    }
+
+    .founder-bio p {
+      color: #C5D8F0;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .founder-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .founder-tag {
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .founder-tag i {
+      margin-right: 8px;
+      color: #00e5ff;
+    }
+
+    .founder-tag:hover {
+      background: rgba(0, 229, 255, 0.2);
+      transform: translateY(-2px);
     }
 
     /* Tecnologias em nuvem */
@@ -672,6 +736,15 @@
         padding: 30px;
       }
 
+      .founder-avatar img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .founder-bio .title {
+        display: inline-block;
+      }
+
       .navbar {
         flex-direction: column;
         align-items: center;
@@ -823,19 +896,27 @@
       </div>
     </div>
 
-    <!-- Founder com layout diferenciado -->
+    <!-- Seção do CEO com foto e UI/UX aprimorada -->
     <div class="founder-showcase">
       <div class="founder-avatar">
-        <i class="fas fa-user-astronaut"></i>
+        <!-- Foto realista do CEO (placeholder com estilo profissional) -->
+        <img src="assets/medice.png" alt="Lucas Medice - CEO OrionPrime"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="fallback-icon"><i class="fas fa-user-astronaut"></i></div>
       </div>
       <div class="founder-bio">
         <h3>Lucas Medice</h3>
-        <div class="title">CEO OrionPrime</div>
-        <p>Formado em Defesa Cibernética pela FIAP e técnico em Desenvolvimento de Sistemas com experiência superior a 5
-          anos com tecnologia. Fundou a OrionPrime com a sede de transformar a tecnologia de seus clientes com a
-          Inteligência Artificial</p>
-        <p><i class="fas fa-brain"></i> Engenheiro de IA &nbsp;|&nbsp; <i class="fa-solid fa-user-secret"></i> Analista
-          de Cibersegurança &nbsp;|&nbsp; <i class="fa-solid fa-code"></i> Arquiteto de Soluções</p>
+        <div class="title">CEO & Fundador da OrionPrime</div>
+        <p>Formado em Defesa Cibernética pela FIAP e técnico em Desenvolvimento de Sistemas, Lucas une mais de 5 anos de
+          experiência em tecnologia com a visão de transformar negócios através da Inteligência Artificial. Fundou a
+          OrionPrime com o propósito de criar soluções verticais que realmente resolvam problemas reais — unindo
+          segurança, performance e inovação.</p>
+        <div class="founder-tags">
+          <span class="founder-tag"><i class="fas fa-brain"></i> Engenheiro de IA</span>
+          <span class="founder-tag"><i class="fa-solid fa-user-secret"></i> Cibersegurança</span>
+          <span class="founder-tag"><i class="fa-solid fa-code"></i> Arquiteto de Soluções</span>
+          <span class="founder-tag"><i class="fas fa-robot"></i> AI-First</span>
+        </div>
       </div>
     </div>
 
