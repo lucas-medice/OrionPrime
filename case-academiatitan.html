@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>OrionPrime · Sobre nós</title>
+  <title>OrionPrime · Case Academia Titan | Transformação digital</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -41,20 +40,10 @@
       margin: 0 auto;
     }
 
-    .logo a {
-      display: block;
-      text-decoration: none;
-    }
-
     .logo img {
       height: 48px;
       width: auto;
       filter: brightness(1.05) drop-shadow(0 0 4px rgba(0, 229, 255, 0.2));
-      transition: filter 0.2s;
-    }
-
-    .logo img:hover {
-      filter: brightness(1.1) drop-shadow(0 0 8px rgba(0, 229, 255, 0.4));
     }
 
     .nav-links {
@@ -92,12 +81,6 @@
       cursor: pointer;
       font-size: 0.85rem;
       color: #C5D3E8;
-      transition: all 0.2s;
-    }
-
-    .lang-button:hover {
-      background: rgba(0, 229, 255, 0.15);
-      border-color: #00e5ff;
     }
 
     .lang-button .flag-img {
@@ -144,284 +127,226 @@
       color: #00e5ff;
     }
 
-    /* Hero com parallax sutil */
-    .hero-about {
-      position: relative;
-      background: radial-gradient(circle at 30% 40%, rgba(0, 60, 80, 0.7), #05070F 80%);
-      padding: 100px 32px 120px;
+    /* Hero do case */
+    .case-hero {
+      background: radial-gradient(circle at 30% 20%, rgba(0, 50, 70, 0.6), #05070F);
+      padding: 60px 32px;
       text-align: center;
-      overflow: hidden;
+      border-bottom: 1px solid rgba(0, 230, 255, 0.2);
     }
 
-    .hero-about::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.1"><path fill="none" stroke="%2300e5ff" stroke-width="1.5" d="M200,200 L600,200 M200,300 L600,300 M200,400 L600,400 M200,500 L600,500 M300,200 L300,600 M400,200 L400,600 M500,200 L500,600"/></svg>');
-      background-repeat: repeat;
-      background-size: 60px;
-      pointer-events: none;
-    }
-
-    .hero-about h1 {
+    .case-hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 3.8rem;
+      font-size: 3rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #FFFFFF, #7EC8E0);
+      background: linear-gradient(135deg, #FFFFFF, #B0E0FF);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .hero-about p {
-      color: #B0C4DE;
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      position: relative;
-    }
-
-    /* Container padrão */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    /* Seção "Quem somos" com cartão flutuante */
-    .who-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      margin: 80px 0;
-      align-items: center;
-    }
-
-    .who-text {
-      flex: 1.2;
-    }
-
-    .who-text h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.2rem;
-      color: #00e5ff;
-      margin-bottom: 24px;
-    }
-
-    .who-text p {
-      color: #C5D8F0;
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
-
-    .who-stats {
-      flex: 0.8;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .stat-card {
-      background: rgba(0, 229, 255, 0.05);
-      border: 1px solid rgba(0, 229, 255, 0.2);
-      border-radius: 28px;
-      padding: 24px;
-      text-align: center;
-      backdrop-filter: blur(4px);
-      transition: all 0.25s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      border-color: #00e5ff;
-      background: rgba(0, 229, 255, 0.1);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #00e5ff;
-    }
-
-    /* Grid de valores com ícones grandes */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin: 80px 0;
-    }
-
-    .value-card {
-      background: #0E1427;
-      border-radius: 32px;
-      padding: 40px 28px;
-      text-align: center;
-      border: 1px solid rgba(0, 229, 255, 0.2);
-      transition: all 0.3s;
-    }
-
-    .value-card:hover {
-      transform: translateY(-10px);
-      border-color: #00e5ff;
-      box-shadow: 0 20px 30px -12px rgba(0, 229, 255, 0.2);
-    }
-
-    .value-icon {
-      font-size: 3.2rem;
-      color: #00e5ff;
-      margin-bottom: 24px;
-    }
-
-    .value-card h3 {
-      font-size: 1.6rem;
       margin-bottom: 16px;
     }
 
-    /* Timeline vertical inovadora */
-    .timeline-vertical {
-      margin: 80px 0;
-    }
-
-    .timeline-vertical h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 60px;
-    }
-
-    .timeline-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      position: relative;
-      padding-left: 40px;
-    }
-
-    .timeline-steps::before {
-      content: "";
-      position: absolute;
-      left: 15px;
-      top: 20px;
-      bottom: 20px;
-      width: 2px;
-      background: linear-gradient(to bottom, #00e5ff, rgba(0, 229, 255, 0.2));
-    }
-
-    .step {
-      display: flex;
-      gap: 30px;
-      position: relative;
-    }
-
-    .step-marker {
-      width: 50px;
-      height: 50px;
-      background: #0E1427;
-      border: 2px solid #00e5ff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: #00e5ff;
-      background: #05070F;
-      z-index: 2;
-    }
-
-    .step-content {
-      flex: 1;
-      background: rgba(14, 20, 39, 0.7);
-      border-radius: 24px;
-      padding: 20px 28px;
-      border: 1px solid rgba(0, 229, 255, 0.15);
-    }
-
-    .step-content h3 {
-      font-size: 1.4rem;
-      color: #00e5ff;
-      margin-bottom: 8px;
-    }
-
-    /* Founder com estilo diferenciado */
-    .founder-showcase {
-      margin: 80px 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      align-items: center;
-      background: linear-gradient(135deg, #0E1427, #05070F);
-      border-radius: 48px;
-      padding: 50px;
-      border: 1px solid rgba(0, 229, 255, 0.2);
-    }
-
-    .founder-avatar {
-      flex: 1;
-      text-align: center;
-    }
-
-    .founder-avatar i {
-      font-size: 8rem;
-      color: #00e5ff;
-      background: rgba(0, 229, 255, 0.1);
-      padding: 30px;
-      border-radius: 50%;
-    }
-
-    .founder-bio {
-      flex: 2;
-    }
-
-    .founder-bio h3 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .founder-bio .title {
-      color: #00e5ff;
+    .case-hero .badge {
+      display: inline-block;
+      background: rgba(0, 229, 255, 0.15);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.8rem;
       font-weight: 600;
+      color: #00e5ff;
       margin-bottom: 20px;
     }
 
-    /* Tecnologias em nuvem */
-    .tech-cloud {
-      margin: 80px 0;
-      text-align: center;
+    .case-hero p {
+      color: #A7BBD9;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
     }
 
-    .tech-cloud h2 {
+    /* Seções gerais */
+    .section-case {
+      max-width: 1300px;
+      margin: 80px auto;
+      padding: 0 32px;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
       font-size: 2rem;
-      margin-bottom: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #00e5ff;
+      position: relative;
+      display: inline-block;
     }
 
-    .cloud-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #00e5ff;
+      border-radius: 4px;
     }
 
-    .cloud-items span {
-      background: rgba(0, 229, 255, 0.08);
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: all 0.2s;
+    .grid-2cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .grid-3cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card-case {
+      background: #0E1427;
       border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 28px;
+      padding: 32px 28px;
+      transition: all 0.25s;
     }
 
-    .cloud-items span:hover {
-      background: rgba(0, 229, 255, 0.2);
-      transform: scale(1.05);
+    .card-case:hover {
+      transform: translateY(-6px);
+      border-color: #00e5ff;
+      box-shadow: 0 20px 30px -12px rgba(0, 229, 255, 0.15);
     }
 
-    /* Modais (mesmos) */
+    .card-icon {
+      font-size: 2.8rem;
+      color: #00e5ff;
+      margin-bottom: 20px;
+    }
+
+    .card-case h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card-case p,
+    .card-case li {
+      color: #C5D8F0;
+      font-size: 0.95rem;
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .list-check li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+
+    .list-check i {
+      color: #00e5ff;
+      width: 20px;
+    }
+
+    /* Galeria de mídia (fotos e vídeos) */
+    .media-gallery {
+      margin-top: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .media-card {
+      background: #0E1427;
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.25s;
+    }
+
+    .media-card:hover {
+      transform: translateY(-5px);
+      border-color: #00e5ff;
+    }
+
+    .media-card img,
+    .media-card video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    .media-card .caption {
+      padding: 16px;
+      font-size: 0.85rem;
+      color: #A7BBD9;
+      text-align: center;
+      border-top: 1px solid rgba(0, 229, 255, 0.1);
+    }
+
+    .image-placeholder {
+      background: linear-gradient(135deg, #0E1427, #1a1f35);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      text-align: center;
+      padding: 40px 20px;
+      color: #7EC8E0;
+    }
+
+    .image-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      color: #00e5ff;
+    }
+
+    .highlight-quote {
+      background: rgba(0, 229, 255, 0.05);
+      border-left: 4px solid #00e5ff;
+      padding: 32px 40px;
+      border-radius: 32px;
+      margin: 40px 0;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    /* Resultados em números */
+    .results-box {
+      background: rgba(0, 229, 255, 0.03);
+      border-radius: 48px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .results-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .results-stats div strong {
+      font-size: 2rem;
+      color: #00e5ff;
+    }
+
+    /* Modais */
     .modal {
       display: none;
       position: fixed;
@@ -429,7 +354,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(8px);
       z-index: 1000;
       justify-content: center;
@@ -642,34 +567,17 @@
     @media (max-width: 860px) {
 
       .navbar,
-      .hero-about,
-      .container,
+      .case-hero,
+      .section-case,
       .footer-inner {
         padding-left: 20px;
         padding-right: 20px;
       }
 
-      .values-grid,
+      .grid-2cols,
+      .grid-3cols,
       .footer-inner {
         grid-template-columns: 1fr;
-      }
-
-      .who-section {
-        flex-direction: column;
-      }
-
-      .timeline-steps {
-        padding-left: 20px;
-      }
-
-      .step {
-        gap: 15px;
-      }
-
-      .founder-showcase {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
       }
 
       .navbar {
@@ -681,8 +589,12 @@
         margin: 0;
       }
 
-      .hero-about h1 {
-        font-size: 2.5rem;
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .results-stats {
+        gap: 20px;
       }
     }
   </style>
@@ -696,7 +608,7 @@
       </a>
     </div>
     <ul class="nav-links">
-      <li><a href="sobre.html" class="active">Sobre</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
       <li><a href="#" id="servicosLink">Soluções</a></li>
       <li><a href="#" id="conteudoLink">Conteúdo</a></li>
       <li><a href="contato.html">Contato</a></li>
@@ -720,140 +632,145 @@
     </div>
   </div>
 
-  <div class="hero-about">
-    <h1>Construindo o futuro digital<br>de negócios locais</h1>
-    <p>Engenharia de software, inteligência artificial e paixão por resultados.</p>
+  <!-- Hero do case -->
+  <div class="case-hero">
+    <div class="badge"><i class="fas fa-trophy"></i> Case de sucesso</div>
+    <h1>Academia Titan<br>Modernização completa</h1>
+    <p>Como uma academia de Taekwondo e musculação transformou sua operação, eliminou fichas de papel e conquistou uma
+      presença digital de alto nível com a solução OrionPrime.</p>
   </div>
 
-  <div class="container">
-    <!-- Seção quem somos + stats -->
-    <div class="who-section">
-      <div class="who-text">
-        <h2>Nossa essência</h2>
-        <p>A OrionPrime nasceu para romper com o modelo tradicional de software house. Não vendemos código, vendemos
-          soluções verticais completas — cada produto é uma máquina digital inteligente, construída sob medida para um
-          nicho específico e validada com clientes reais.</p>
-        <p>Com arquitetura AI-First, transformamos dados em vantagem competitiva e ajudamos negócios locais a escalar
-          com tecnologia de ponta.</p>
+  <!-- Resumo / introdução -->
+  <div class="section-case">
+    <div class="grid-2cols">
+      <div>
+        <h2 class="section-title">O desafio</h2>
+        <p style="margin-top: 24px; font-size: 1.05rem;">A academia enfrentava problemas comuns do setor fitness:
+          treinos registrados em fichas de papel, comunicação falha entre instrutores e alunos, dificuldade em
+          organizar evoluções de carga e uma presença digital limitada. A percepção de valor do
+          serviço estava aquém do potencial real do negócio.</p>
+        <ul class="list-check" style="margin-top: 24px;">
+          <li><i class="fas fa-times-circle" style="color:#ff5e5e;"></i> Fichas de treino físicas (perda de dados,
+            difícil atualização)</li>
+          <li><i class="fas fa-times-circle" style="color:#ff5e5e;"></i> Baixa retenção de alunos por falta de
+            engajamento digital</li>
+          <li><i class="fas fa-times-circle" style="color:#ff5e5e;"></i> Nenhum site institucional ou canal de captação
+            de leads</li>
+          <li><i class="fas fa-times-circle" style="color:#ff5e5e;"></i> Instrutores sobrecarregados com tarefas
+            manuais</li>
+        </ul>
       </div>
-      <div class="who-stats">
-        <div class="stat-card">
-          <div class="stat-number">+100%</div>
-          <div>Aprimorado por IA</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">-35%</div>
-          <div>Gastos operacionais</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">-80%</div>
-          <div>Operações manuais</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Valores em cards -->
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon"><i class="fas fa-microchip"></i></div>
-        <h3>AI-First</h3>
-        <p>Inteligência artificial no DNA de cada solução, não como acessório.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon"><i class="fas fa-cubes"></i></div>
-        <h3>Produtos verticais</h3>
-        <p>Foco total em nichos específicos, gerando valor real e replicável.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon"><i class="fas fa-handshake"></i></div>
-        <h3>Parceria direta</h3>
-        <p>Você fala com quem constrói. Sem camadas, sem burocracia.</p>
-      </div>
-    </div>
-
-    <!-- Timeline vertical -->
-    <div class="timeline-vertical">
-      <h2>Conhecemos seus desafios</h2>
-      <div class="timeline-steps">
-        <div class="step">
-          <div class="step-marker">1</div>
-          <div class="step-content">
-            <h3>Processos lentos e manuais</h3>
-            <p>Processos dependentes de planilhas, papel ou tarefas repetitivas consomem tempo, aumentam erros e travam
-              a operação. O retrabalho se torna constante e a produtividade cai. No longo prazo, isso limita a
-              capacidade da empresa de crescer com eficiência.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-marker">2</div>
-          <div class="step-content">
-            <h3>Custos altos de operação</h3>
-            <p>Ineficiências operacionais fazem os custos aumentarem sem que isso seja percebido imediatamente. Mais
-              tempo gasto, mais esforço humano e mais recursos necessários para manter o básico funcionando. Isso reduz
-              margens e dificulta a expansão.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-marker">3</div>
-          <div class="step-content">
-            <h3>Tecnologia</h3>
-            <p>Sistemas desatualizados e ferramentas desconectadas tornam qualquer evolução mais lenta e complexa. A
-              falta de integração gera gargalos e dificulta a tomada de decisão. A tecnologia deixa de impulsionar o
-              negócio e passa a ser um obstáculo.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-marker">4</div>
-          <div class="step-content">
-            <h3>Grandes volumes de dados</h3>
-            <p>Empresas geram dados constantemente, mas sem organização eles não se transformam em informação útil. O
-              excesso sem estrutura causa confusão e decisões baseadas em suposições. Isso compromete estratégias e
-              resultados.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-marker">5</div>
-          <div class="step-content">
-            <h3>Escalabilidade limitada</h3>
-            <p>Quando a operação depende de processos frágeis, crescer significa aumentar problemas. Cada novo cliente
-              ou demanda traz mais complexidade e pressão. Sem estrutura, o crescimento se torna desordenado e difícil
-              de sustentar.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Founder com layout diferenciado -->
-    <div class="founder-showcase">
-      <div class="founder-avatar">
-        <i class="fas fa-user-astronaut"></i>
-      </div>
-      <div class="founder-bio">
-        <h3>Lucas Medice</h3>
-        <div class="title">CEO OrionPrime</div>
-        <p>Formado em Defesa Cibernética pela FIAP e técnico em Desenvolvimento de Sistemas com experiência superior a 5
-          anos com tecnologia. Fundou a OrionPrime com a sede de transformar a tecnologia de seus clientes com a
-          Inteligência Artificial</p>
-        <p><i class="fas fa-brain"></i> Engenheiro de IA &nbsp;|&nbsp; <i class="fa-solid fa-user-secret"></i> Analista
-          de Cibersegurança &nbsp;|&nbsp; <i class="fa-solid fa-code"></i> Arquiteto de Soluções</p>
-      </div>
-    </div>
-
-    <!-- Tech cloud -->
-    <div class="tech-cloud">
-      <h2>As nossas soluções passam por</h2>
-      <div class="cloud-items">
-        <span>Vulnerability Assessment (Avaliação de Vulnerabilidades)</span>
-        <span>Pentest (Teste de Intrusão)</span>
-        <span>AI-Powered Enhancing (Aprimoramento alimentado por IA)</span>
-        <span>SAST & DAST (Testes de segurança automatizados)</span>
-        <span>Revisão de Infraestrutura (Cloud)</span>
-        <span>Programas de Bug Bounty (Identificação de Falhas)</span>
+      <div class="image-placeholder">
+        <i class="fas fa-folder-open"></i>
+        <p>Antes: fichas de papel e processos manuais</p>
+        <small style="display: block; margin-top: 12px;">Sem organização centralizada</small>
       </div>
     </div>
   </div>
 
-  <!-- MODAL SERVIÇOS -->
+  <!-- A solução OrionFit -->
+  <div class="section-case">
+    <h2 class="section-title">A solução: OrionFIT >> Academia Titan</h2>
+    <p style="margin-top: 20px; max-width: 800px;">Desenvolvemos uma plataforma completa que integra site institucional,
+      área do cliente e painel administrativo — arquitetura modular e resultado customizado entregue ao cliente.</p>
+
+    <div class="grid-3cols" style="margin-top: 40px;">
+      <div class="card-case">
+        <div class="card-icon"><i class="fas fa-globe"></i></div>
+        <h3>Site institucional moderno</h3>
+        <p>Design responsivo, identidade visual forte, informações sobre modalidades, horários, equipe e blog. Captação
+          de leads integrada com WhatsApp e formulários.</p>
+      </div>
+      <div class="card-case">
+        <div class="card-icon"><i class="fas fa-user-check"></i></div>
+        <h3>Área do cliente</h3>
+        <p>Alunos acessam treinos personalizados, evolução de cargas, vídeos demonstrativos e mensagens dos
+          instrutores. Tudo digital, acessível pelo celular.</p>
+      </div>
+      <div class="card-case">
+        <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+        <h3>Painel administrativo</h3>
+        <p>Instrutores gerenciam alunos, criam treinos rapidamente, enviam notificações e acompanham a adesão. Fim das
+          planilhas e papéis.</p>
+      </div>
+    </div>
+
+    <div class="highlight-quote">
+      <i class="fas fa-quote-left" style="color:#00e5ff; margin-right: 10px;"></i>
+      A solução não é apenas um sistema – é uma ferramenta estratégica. A academia ganhou profissionalismo, os alunos
+      se sentem mais apoiados e o negócio agora atrai novos clientes com um site que impressiona.
+      <i class="fas fa-quote-right" style="color:#00e5ff; margin-left: 10px;"></i>
+    </div>
+  </div>
+
+  <!-- Diferenciais e resultados -->
+  <div class="section-case">
+    <div class="grid-2cols">
+      <div>
+        <h2 class="section-title">O grande diferencial</h2>
+        <p style="margin-top: 24px;">Mais do que resolver problemas operacionais, o projeto reposicionou a academia no
+          mercado local. Hoje ela é vista como referência em tecnologia e cuidado com o aluno.</p>
+        <ul class="list-check" style="margin-top: 20px;">
+          <li><i class="fas fa-check-circle"></i> Transformação de problema operacional em vantagem competitiva</li>
+          <li><i class="fas fa-check-circle"></i> Experiência do aluno digitalizada e personalizada</li>
+          <li><i class="fas fa-check-circle"></i> Aumento da percepção de valor do serviço</li>
+          <li><i class="fas fa-check-circle"></i> Presença online forte que gera novos leads</li>
+          <li><i class="fas fa-check-circle"></i> Instrutores mais produtivos e focados no que importa</li>
+        </ul>
+      </div>
+      <div class="results-box">
+        <i class="fas fa-chart-simple" style="font-size: 2rem; color:#00e5ff;"></i>
+        <h3 style="margin: 16px 0;">Resultados em números</h3>
+        <div class="results-stats">
+          <div><strong>100%</strong><br>digitalização dos treinos</div>
+          <div><strong>+35%</strong><br>retenção de alunos</div>
+          <div><strong>-80%</strong><br>tempo administrativo</div>
+          <div><strong>+50%</strong><br>novos leads via site</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galeria de mídia (fotos e vídeos do projeto) -->
+  <div class="section-case">
+    <h2 class="section-title">Veja o projeto em ação</h2>
+    <p style="margin-top: 20px;">Imagens e vídeos reais da solução implementada na Academia Titan.</p>
+    <div class="media-gallery">
+      <div class="gallery-grid">
+        <!-- Card 1: imagem do site institucional -->
+        <div class="media-card">
+          <img src="https://placehold.co/600x400/0E1427/00e5ff?text=Site+Institucional"
+            alt="Site institucional da Academia Titan">
+          <div class="caption">Site moderno com identidade visual e captação de leads</div>
+        </div>
+        <!-- Card 2: imagem da área do cliente -->
+        <div class="media-card">
+          <img src="https://placehold.co/600x400/0E1427/00e5ff?text=Area+do+Aluno"
+            alt="Área do cliente - treinos digitais">
+          <div class="caption">Área do aluno: treinos personalizados e evolução</div>
+        </div>
+        <!-- Card 3: vídeo demonstrativo (exemplo com vídeo placeholder) -->
+        <div class="media-card">
+          <video controls poster="https://placehold.co/600x400/0E1427/00e5ff?text=Vídeo+Demo">
+            <source src="#" type="video/mp4">
+            Seu navegador não suporta vídeo. Adicione um vídeo real do projeto.
+          </video>
+          <div class="caption">Demonstração do painel administrativo (vídeo)</div>
+        </div>
+        <!-- Card 4: imagem do painel administrativo -->
+        <div class="media-card">
+          <img src="https://placehold.co/600x400/0E1427/00e5ff?text=Painel+Admin" alt="Painel administrativo">
+          <div class="caption">Gestão de alunos e treinos pelo instrutor</div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 24px; font-size: 0.85rem; color: #7EC8E0;">
+        <i class="fas fa-info-circle"></i> As imagens são ilustrativas. Em breve, adicionaremos fotos reais da Academia
+        Titan.
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL DE SERVIÇOS (SOLUÇÕES) -->
   <div id="servicosModal" class="modal">
     <div class="modal-content">
       <span class="modal-close">&times;</span>
@@ -864,7 +781,7 @@
     </div>
   </div>
 
-  <!-- MODAL CONTEÚDO -->
+  <!-- MODAL DE CONTEÚDO -->
   <div id="conteudoModal" class="modal">
     <div class="modal-content">
       <span class="modal-close" id="closeConteudoModal">&times;</span>
@@ -895,6 +812,7 @@
             <li><a href="sobre.html">Sobre</a></li>
           </ul>
           <ul>
+            <li><a href="cases.html">Cases</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
@@ -920,7 +838,7 @@
   </footer>
 
   <script>
-    // Modais (cópia funcional)
+    // Modal serviços
     const modalServicos = document.getElementById('servicosModal');
     const servicosLink = document.getElementById('servicosLink');
     const servicosFooterLink = document.getElementById('servicosFooterLink');
@@ -939,6 +857,7 @@
     window.addEventListener('click', (e) => { if (e.target === modalServicos) closeServicosFunc(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalServicos.style.display === 'flex') closeServicosFunc(); });
 
+    // Modal conteúdo
     const modalConteudo = document.getElementById('conteudoModal');
     const conteudoLink = document.getElementById('conteudoLink');
     const closeConteudo = document.getElementById('closeConteudoModal');
@@ -955,7 +874,7 @@
     window.addEventListener('click', (e) => { if (e.target === modalConteudo) closeConteudoFunc(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalConteudo.style.display === 'flex') closeConteudoFunc(); });
 
-    // Idioma
+    // Idioma placeholder
     const langSelector = document.getElementById('langSelector');
     const langButton = document.getElementById('langButton');
     const langOptions = document.querySelectorAll('.lang-option');
